@@ -1,0 +1,21 @@
+{
+  "name": "image-renderer",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot run src/index.tsx",
+    "lint": "bunx prettier . --write"
+  },
+  "dependencies": {
+    "@cf-wasm/png": "^0.1.24",
+    "date-fns": "^4.1.0",
+    "googleapis": "^160.0.0",
+    "hono": "^4.9.8",
+    "puppeteer": "^24.22.0",
+    "sharp": "^0.34.4",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.22",
+    "prettier": "3.6.2"
+  }
+}

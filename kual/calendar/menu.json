@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "Calendar",
+      "priority": 0,
+      "items": [
+        {
+          "name": "Start Calendar",
+          "priority": 1,
+          "action": "/mnt/us/extensions/calendar/bin/start_calendar.sh",
+          "exitmenu": true,
+          "checked": false,
+          "refresh": false,
+          "status": true
+        }
+      ]
+    }
+  ]
+}

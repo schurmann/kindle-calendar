@@ -1,0 +1,10 @@
+node_modules
+.wrangler
+.env.development
+.git
+.gitignore
+README.md
+.prettierrc
+.prettierignore
+bun-env.d.ts
+*.log

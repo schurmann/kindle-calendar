@@ -1,0 +1,7 @@
+node_modules/
+.wrangler/
+google-auth.json
+worker-configuration.d.ts
+.dev.vars*
+.env*
+
