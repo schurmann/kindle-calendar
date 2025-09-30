@@ -136,9 +136,9 @@ get_battery_level() {
 
 # Function to fetch and display image (following reference pattern)
 fetch_and_display() {
-    # Check if API key is set as environment variable
-    if [ -z "$API_KEY" ]; then
-        log "Error: API_KEY environment variable not set"
+    # Check if credentials are set as environment variables
+    if [ -z "$API_USERNAME" ] || [ -z "$API_PASSWORD" ]; then
+        log "Error: API_USERNAME and API_PASSWORD environment variables must be set"
         return 1
     fi
 
@@ -160,8 +160,8 @@ fetch_and_display() {
 
     log "Fetching image from: $url_with_battery"
 
-    # Use curl with X-API-KEY header for authentication
-    curl -s -L -H "X-API-KEY: $API_KEY" -o "$DASH_PNG.tmp" "$url_with_battery"
+    # Use curl with Basic Auth for authentication
+    curl -s -L -u "$API_USERNAME:$API_PASSWORD" -o "$DASH_PNG.tmp" "$url_with_battery"
     download_status=$?
 
     if [ "$download_status" -ne 0 ]; then
