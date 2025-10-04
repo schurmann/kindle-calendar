@@ -205,13 +205,13 @@ log "Timezone: $TIMEZONE"
 log "Current time: $(get_current_time)"
 
 init
-fetch_and_display
+"$DIR/wait_for_wifi.sh" 1.1.1.1 && fetch_and_display
 
 # Periodic updates with dynamic intervals
 while true; do
     CURRENT_INTERVAL=$(get_dynamic_interval)
     current_time=$(get_current_time)
     log "Current time: $current_time, Next update in: ${CURRENT_INTERVAL} seconds"
-    sleep $CURRENT_INTERVAL
-    fetch_and_display
+    rtcwake -d /dev/rtc1 -m mem -s "$CURRENT_INTERVAL"
+    "$DIR/wait_for_wifi.sh" 1.1.1.1 && fetch_and_display
 done
