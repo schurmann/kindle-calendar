@@ -71,16 +71,11 @@ app.get("/dashboard.png", async (c) => {
     const browser = await puppeteer.launch(
       process.env.CONTAINER
         ? {
-          executablePath: '/usr/bin/google-chrome',
+          headless: 'shell',
           args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--disable-gpu'
           ],
         }
         : {}
