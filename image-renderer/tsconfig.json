@@ -4,7 +4,8 @@
     "module": "Preserve",
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
-    "lib": ["ESNext"],
+    // DOM is needed for the browser-context callbacks passed to page.evaluate
+    "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",
     "allowJs": true,
     "jsxImportSource": "hono/jsx",
