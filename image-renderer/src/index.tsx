@@ -95,6 +95,10 @@ app.get("/dashboard.png", async (c) => {
       content: SCROLLBAR_HIDE_CSS,
     });
 
+    // The load event doesn't guarantee webfonts are applied; without this the
+    // screenshot can capture a fallback face
+    await page.evaluate(() => document.fonts.ready);
+
     console.log("Taking screenshot");
     const screenshot = await page.screenshot({
       type: "png",
