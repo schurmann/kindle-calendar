@@ -133,8 +133,8 @@ bun run dev
 CALENDAR_PROVIDER=mock bun run dev
 
 # Build and run container
-docker build -t kindle-dashboard .
-docker run -p 3000:3000 kindle-dashboard
+docker build -t kindle-calendar .
+docker run -p 3000:3000 kindle-calendar
 ```
 
 **Mock Data**: The server includes mock calendar data featuring Hobbit-themed events for testing without Google Calendar API setup. Set `CALENDAR_PROVIDER=mock` to use it.

@@ -3,7 +3,7 @@
 set -e
 
 # Configuration
-IMAGE_NAME="ghcr.io/schurmann/kindle-dashboard"
+IMAGE_NAME="ghcr.io/schurmann/kindle-calendar"
 DOCKERFILE_PATH="image-renderer/Dockerfile"
 BUILD_CONTEXT="image-renderer"
 
