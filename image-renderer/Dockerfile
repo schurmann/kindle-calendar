@@ -1,12 +1,16 @@
-FROM oven/bun:1.2
+FROM oven/bun:1.3
 
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# Skips the postinstall download; the shell is installed explicitly below.
+# Puppeteer 25 renamed this from PUPPETEER_SKIP_CHROMIUM_DOWNLOAD and no longer
+# honours the old name, which makes postinstall pull full Chrome as well.
+ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_CACHE_DIR=/opt/puppeteer
 ENV CONTAINER=1
 
 # Shared libraries chrome-headless-shell links against (from ldd on the binary),
 # plus fonts to support major charsets including emojis. Unlike
-# google-chrome-stable this pulls in no desktop or X11 stack.
+# google-chrome-stable this pulls in no desktop or X11 stack. unzip is needed to
+# extract the browser download: puppeteer 25 dropped its bundled zip extractor.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -31,6 +35,7 @@ RUN apt-get update \
         libxfixes3 \
         libxkbcommon0 \
         libxrandr2 \
+        unzip \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
