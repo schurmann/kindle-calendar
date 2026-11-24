@@ -4,8 +4,8 @@
     "module": "Preserve",
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
-    // DOM is needed for the browser-context callbacks passed to page.evaluate
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
+    "types": ["bun"],
     "jsx": "react-jsx",
     "allowJs": true,
     "jsxImportSource": "hono/jsx",
@@ -25,5 +25,5 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "include": ["src/**/*", "src/**/*.tsx"]
+  "include": ["src/**/*", "test/**/*.ts"]
 }

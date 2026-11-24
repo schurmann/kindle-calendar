@@ -1,5 +1,4 @@
-import type { ProcessedEvent } from "../types/calendar";
-import type { BatteryInfo } from "../types/dashboard";
+import type { Agenda } from "../agenda";
 import { CALENDAR_CONFIG } from "../config/constants";
 import { getWeekNumber } from "../utils/date.utils";
 import { StatusBar } from "./StatusBar";
@@ -8,19 +7,12 @@ import { EmptyWeekBlock } from "./EmptyWeekBlock";
 import { DayRow } from "./DayRow";
 import { css } from "hono/css";
 
-interface CalendarPageProps {
-  daysWithEvents: Date[];
-  eventsByDay: Map<string, ProcessedEvent[]>;
-  batteryInfo: BatteryInfo;
-  today: Date;
-}
-
 export function CalendarPage({
   daysWithEvents,
   eventsByDay,
   batteryInfo,
   today,
-}: CalendarPageProps) {
+}: Agenda) {
   let lastWeekWithEvents = -1;
   let lastMonthDisplayed = -1;
 

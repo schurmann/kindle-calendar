@@ -97,13 +97,13 @@ Containerized backend that serves dashboard images to Kindle clients via HTTP re
 - **TypeScript**: Full type safety with strict configuration
 - **Date Handling**: date-fns library for reliable date operations
 - **Calendar Integration**: Google Calendar API with OAuth service account
-- **Image Processing**: Puppeteer for grayscale conversion
+- **Image Processing**: Sharp renders the dashboard PNG from agenda data. See [the renderer decision](docs/adr/0001-render-dashboard-without-chrome.md) before changing image layout or delivery.
 - **Environment Management**: Environment variables
 
 ### API Endpoints
 
 - **`/dashboard.png`**: PNG image generation for Kindle display
-- **`/calendar`**: HTML calendar view with battery status support
+- **`/calendar`**: HTML preview of the same agenda with battery status support
 
 ### Features
 

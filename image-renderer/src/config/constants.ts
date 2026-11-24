@@ -16,14 +16,3 @@ export const GOOGLE_AUTH_CONFIG = {
   CLIENT_ID: "117909210471431257098",
   UNIVERSE_DOMAIN: "googleapis.com",
 } as const;
-
-// CSS styles for hiding scrollbars
-export const SCROLLBAR_HIDE_CSS = `
-  ::-webkit-scrollbar {
-    display: none !important;
-  }
-  * {
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-  }
-`;
